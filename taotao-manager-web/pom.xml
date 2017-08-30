@@ -22,14 +22,25 @@
 			<version>0.0.1-SNAPSHOT</version>
 			<type>pom</type>
 		</dependency>
+		<dependency>
+			<groupId>com.taotao</groupId>
+			<artifactId>taotao-common</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>fastdfs_client</groupId>
+			<artifactId>fastdfs_client</artifactId>
+			<version>1.25</version>
+		</dependency>
 	</dependencies>
-
+ 
 	<build>
 		<plugins>
 			<!-- 配置Tomcat插件 -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
+				 <version>2.2</version>
 				<!-- 原来的：http://127.0.0.1:8080/taotao-manager-web -->
 				<!-- http://127.0.0.1:${port}/${path} -->
 				<!-- 现在的：http://127.0.0.1:8080/ -->

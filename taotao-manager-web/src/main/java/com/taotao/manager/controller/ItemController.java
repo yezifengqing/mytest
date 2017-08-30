@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.taotao.common.pojo.TaoResult;
 import com.taotao.manager.pojo.Item;
 import com.taotao.manager.service.ItemService;
 
@@ -19,5 +21,15 @@ public class ItemController {
 	@ResponseBody
 	public void saveItem(Item item ,String desc){
 		this.itemService.saveItem(item, desc);
+	}
+	
+	/**
+	 * 分页查询
+	 */
+	@RequestMapping(method=RequestMethod.GET)
+	@ResponseBody
+	public TaoResult<Item> queryItemByPage(@RequestParam(value="page",defaultValue="1")Integer page, @RequestParam(value="rows",defaultValue="30")Integer rows){
+		TaoResult<Item> taoResult=this.itemService.queryItemByPage(page,rows);
+		return taoResult;
 	}
 }

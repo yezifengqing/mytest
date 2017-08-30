@@ -103,7 +103,13 @@
 			$.messager.alert('提示','表单还未填写完成!');
 			return ;
 		}
+		//获取id为itemAddFrom的元素，就是 提交表单
+		//查找属性有name=price的元素，就是需要提交到后台的input标签
+		//eval的方法就是做字符串"1"+"2"="3"，这个方法执行成功后的效果是，把用户数据的价格乘以一百
+		
 		$("#itemAddForm [name=price]").val(eval($("#itemAddForm [name=priceView]").val()) * 100);
+		//把富文本编辑器区域的html代码，同步到多行文本中，向后台提交的是多行文本
+		//因为编辑器的编辑区域是div标签，不能提交
 		itemAddEditor.sync();
 				
 		//提交到后台的RESTful
